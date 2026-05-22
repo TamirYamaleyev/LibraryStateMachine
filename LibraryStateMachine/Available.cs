@@ -12,12 +12,13 @@ public class Available : State
         throw new NotImplementedException();
     }
 
-    public override void Rent(int days)
+    public override void Rent(Book book ,int days)
     {
+        book.State = new Rented();
         Console.WriteLine($"Book has been rented for {days} days ");
     }
 
-    public override void Overdue()
+    public override void Overdue(Book book)
     {
         throw new NotImplementedException();
     }
@@ -27,7 +28,7 @@ public class Available : State
         throw new NotImplementedException();
     }
 
-    public override void Return()
+    public override void Return(Book book)
     {
         throw new NotImplementedException();
     }
