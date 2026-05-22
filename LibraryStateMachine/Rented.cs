@@ -2,14 +2,10 @@
 
 public class Rented : State
 {
-    public override void ShowState()
-    {
-        throw new NotImplementedException();
-    }
 
     public override void Rent(Book book,int days)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("can't rent a book that is rented already");
     }
 
     public override void Overdue(Book book)
@@ -19,7 +15,8 @@ public class Rented : State
 
     public override void PayFine()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("unless overdue, no fine is eligble for a rented book");
+        
     }
 
     public override void Return(Book book)
