@@ -30,13 +30,15 @@ namespace LibraryStateMachine
         public void RentBook(Book book, int days)
         {
             book.State.Rent(days);
-            Console.WriteLine($"Renting {book.BookName} for {days} days");
+            //Console.WriteLine($"Renting {book.BookName} for {days} days");
+            books.Remove(book);
         }
 
         public void ReturnBook(Book book)
         {
             book.State.Return();
-            Console.WriteLine($"Returning {book.BookName}");
+            //Console.WriteLine($"Returning {book.BookName}");
+            books.Add(book);
         }
 
         public void SetOverdue(Book book)
