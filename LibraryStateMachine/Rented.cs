@@ -7,7 +7,7 @@ public class Rented : State
         throw new NotImplementedException();
     }
 
-    public override void Rent()
+    public override void Rent(int days)
     {
         throw new NotImplementedException();
     }

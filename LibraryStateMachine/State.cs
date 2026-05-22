@@ -4,7 +4,7 @@ public abstract class State
 {
     public abstract void ShowState();
 
-    public abstract void Rent();
+    public abstract void Rent(int days);
 
     public abstract void Overdue();
     

@@ -12,9 +12,9 @@ public class Available : State
         throw new NotImplementedException();
     }
 
-    public override void Rent()
+    public override void Rent(int days)
     {
-        Console.WriteLine("Book has been rented");
+        Console.WriteLine($"Book has been rented for {days} days ");
     }
 
     public override void Overdue()
