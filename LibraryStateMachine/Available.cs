@@ -6,12 +6,7 @@ public class Available : State
     {
         Console.WriteLine("book is available");
     }
-
-    public override void ShowState()
-    {
-        throw new NotImplementedException();
-    }
-
+    
     public override void Rent(Book book ,int days)
     {
         book.State = new Rented();
@@ -20,16 +15,16 @@ public class Available : State
 
     public override void Overdue(Book book)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("a book that is in stuck isn't overdue");
     }
 
     public override void PayFine()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("you can't pay a fine for a book that is in stock");
     }
 
     public override void Return(Book book)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("cannot return book that is already in stock");
     }
 }

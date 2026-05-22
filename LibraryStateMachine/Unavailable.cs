@@ -2,14 +2,10 @@
 
 public class Unavailable : State
 {
-    public override void ShowState()
-    {
-        throw new NotImplementedException();
-    }
 
     public override void Rent(Book book ,int days)
     {
-        throw new NotImplementedException();
+        Console.WriteLine("can't rent a book that is not in stock");
     }
 
     public override void Overdue(Book book)
