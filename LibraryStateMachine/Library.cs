@@ -27,24 +27,25 @@ namespace LibraryStateMachine
             Console.WriteLine($"Removed {book.BookName} from Library.");
         }
 
-        public void RentBook(Book book, int days)
+        public void RentBook(Book book, int days, string renter)
         {
             book.State.Rent(days);
-            //Console.WriteLine($"Renting {book.BookName} for {days} days");
+            book.Renter = renter;
+            book.State = new Rented();
             books.Remove(book);
         }
 
         public void ReturnBook(Book book)
         {
             book.State.Return();
-            //Console.WriteLine($"Returning {book.BookName}");
+            book.State = new Available();
             books.Add(book);
         }
 
         public void SetOverdue(Book book)
         {
-            book.State.SetOverdue();
-            Console.WriteLine($"{book.BookName} is now overdue");
+            book.State.Overdue();
+            book.State = new Unavailable();
         }
     }
 }

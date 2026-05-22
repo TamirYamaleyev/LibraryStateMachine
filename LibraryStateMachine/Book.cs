@@ -6,25 +6,24 @@ using System.Threading.Tasks;
 
 namespace LibraryStateMachine
 {
-    internal class Book
+    public class Book
     {
         private State state;
-        private string renter;
         private string bookName;
+        public string Renter { get; set; }
 
-        public Book(string renter)
+        public Book(string bookName)
         {
-            this.renter = renter;
-            state = new AvailableState();
+            this.bookName = bookName;
+            state = new Available();
         }
-
-        public string Renter => renter;
-        public string BookName => bookName;
 
         public State State
         {
             get { return state; }
             set { state = value; }
         }
+
+        public string BookName => bookName;
     }
 }
