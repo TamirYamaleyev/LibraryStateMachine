@@ -10,7 +10,8 @@ namespace LibraryStateMachine
     {
         private State state;
         private string bookName;
-        public string Renter { get; set; }
+        private int rentedDays;
+        private int allowedDays;
 
         public Book(string bookName)
         {
@@ -24,8 +25,15 @@ namespace LibraryStateMachine
             set { state = value; }
         }
 
+        public void ShowState()
+        {
+            Console.WriteLine($"{bookName}'s current state: {state.GetType().Name}");
+        }
+
         public void Rent(int days)
         {
+            rentedDays = 0;
+            allowedDays = days;
             state.Rent(this, days);
         }
 
@@ -37,6 +45,17 @@ namespace LibraryStateMachine
         public void SetOverdue()
         {
             state.Overdue(this);
+        }
+
+        public void PassDay()
+        {
+            if (state is Rented)
+            {
+                rentedDays++;
+
+                if (rentedDays > allowedDays)
+                    state.Overdue(this);
+            }
         }
 
         public string BookName => bookName;

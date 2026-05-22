@@ -2,7 +2,6 @@
 
 public class Unavailable : State
 {
-
     public override void Rent(Book book ,int days)
     {
         Console.WriteLine("can't rent a book that is not in stock");
@@ -10,19 +9,18 @@ public class Unavailable : State
 
     public override void Overdue(Book book)
     {
-        Console.WriteLine("Book is overdue");
+        Console.WriteLine("book cant become overdue when its already unavailable");
     }
 
-    public override void PayFine()
+    public override void PayFine(Book book)
     {
-        Console.WriteLine("you need to pay a fine");
+        Console.WriteLine($"you need to pay a fine for {book.BookName}");
     }
 
     public override void Return(Book book)
     {
-        PayFine();
-        Console.WriteLine("fine is paid, book is returned");
+        PayFine(book);
+        Console.WriteLine($"fine is paid, {book.BookName} is returned");
         book.State = new Available();
-
     }
 }

@@ -19,15 +19,14 @@ namespace LibraryStateMachine
         {
             book.Rent(days);
             books.Remove(book);
-            books.Remove(book);
-            Console.WriteLine($"Removed {book.BookName} from library.");
+            Console.WriteLine($"Removed {book.BookName} from library.\n");
         }
 
         public void ReturnBook(Book book)
         {
             book.Return();
             books.Add(book);
-            Console.WriteLine($"Added {book.BookName} to a library shelf.");
+            Console.WriteLine($"Added {book.BookName} to a library shelf.\n");
         }
 
         public void SetOverdue(Book book)
@@ -37,10 +36,12 @@ namespace LibraryStateMachine
 
         public void ShowAvailableBooks()
         {
+            Console.WriteLine("Available Books:");
             foreach (Book book in books)
             {
                 Console.WriteLine(book.BookName);
             }
+            Console.WriteLine();
         }
     }
 }

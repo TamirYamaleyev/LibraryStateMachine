@@ -2,23 +2,18 @@
 
 public class Available : State
 {
-    public void showState()
-    {
-        Console.WriteLine("book is available");
-    }
-    
     public override void Rent(Book book ,int days)
     {
         book.State = new Rented();
-        Console.WriteLine($"Book has been rented for {days} days ");
+        Console.WriteLine($"{book.BookName} has been rented for {days} days ");
     }
 
     public override void Overdue(Book book)
     {
-        Console.WriteLine("a book that is in stuck isn't overdue");
+        Console.WriteLine("a book that is in stock isn't overdue");
     }
 
-    public override void PayFine()
+    public override void PayFine(Book book)
     {
         Console.WriteLine("you can't pay a fine for a book that is in stock");
     }

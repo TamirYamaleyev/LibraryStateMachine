@@ -6,7 +6,7 @@ public abstract class State
 
     public abstract void Overdue(Book book);
     
-    public abstract void PayFine();
+    public abstract void PayFine(Book book);
     
     public abstract void Return(Book book);
 
